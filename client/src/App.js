@@ -25,6 +25,7 @@ const App = () => {
       ) : (
         <div>
           <TopicSelector
+          selectedTopic={selectedTopic}
             topicType={topicType}
             onSetTopicType={setTopicType}
             userName={userName}

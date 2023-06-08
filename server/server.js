@@ -1,12 +1,12 @@
 
+require('dotenv').config();
 
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const CardModel = require("./db/webCard.model");
-const FavouriteModel = require("./db/favourite.model")
 
-
+const mongoUrl = process.env.MONGO_URL;
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3001");
@@ -26,7 +26,15 @@ app.get("/api/cards", async (req, res) => {
   const query = req.query.topic
   try {
     const cards = await CardModel.find({ topic: query });
-    res.json(cards);
+   
+    if (cards.length === 0) {
+      // Ha nem talál kártyát a lekérdezett témával, akkor hibaüzenetet küldünk vissza
+      res.status(404).json([{question: "You have no favourite cards"}]);
+    } else {
+      // Ha talált kártyákat, akkor azokat küldjük vissza
+      res.json(cards);
+    }
+
 
   } catch (error) {
     res.status(500).json({ succes: false, error: "Failed to fetch progcards" });
@@ -92,10 +100,10 @@ app.delete("/api/card/:id", async (req, res) => {
 
 
 
-mongoose.connect("mongodb+srv://csabi627:CsabInez9195@cluster0.bakktz0.mongodb.net/").then(() => {
+mongoose.connect(mongoUrl ).then(() => {
 
   console.log("Connected to DB");
-  app.listen("3000", () => {
+  app.listen(3000, () => {
     console.log("Server listen on port 3000");
   });
 })

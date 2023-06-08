@@ -6,7 +6,7 @@ const Card = ({
 
 }) => {
 
-const [addedTofavorites, setAddedTofavorites] = useState(false)
+    const [addedTofavorites, setAddedTofavorites] = useState(false)
 
     const handleRemove = async () => {
 
@@ -27,7 +27,7 @@ const [addedTofavorites, setAddedTofavorites] = useState(false)
     const handleAddToFavourites = async (e) => {
         e.preventDefault()
         const card = {
-            
+
             topic: "favourite",
             question: selectedTopic.question,
             answer: selectedTopic.answer,
@@ -56,8 +56,13 @@ const [addedTofavorites, setAddedTofavorites] = useState(false)
                         <h2>{selectedTopic.question}</h2>
                     </div>
                     {!showButtonIsClicked ? (
+
                         <div>
-                            <button type="button" onClick={() => { onSetShowButtonIsClicked(true) }}>Show the Answer!</button>
+                            {selectedTopic.question === "You have no favourite cards" ? (
+                                null
+                                ) : (
+                                <button type="button" onClick={() => { onSetShowButtonIsClicked(true) }}>Show the Answer!</button>)}
+
                         </div>
                     ) : (
                         <div>
@@ -71,14 +76,14 @@ const [addedTofavorites, setAddedTofavorites] = useState(false)
                                 onSetSelectedTopic={onSetSelectedTopic}
                             />
                             <button type="button" onClick={handleRemove}>I knew that! Out of Deck!</button>
-                            
+
                             {topicType !== "favourite" && !addedTofavorites &&
-                            <>
-                            <button type="button" onClick={handleAddToFavourites}>Add to favourites </button>
-                            </>
+                                <>
+                                    <button type="button" onClick={handleAddToFavourites}>Add to favourites </button>
+                                </>
 
                             }
-                            
+
                         </div>
 
                     )}

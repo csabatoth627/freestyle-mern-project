@@ -1,20 +1,19 @@
-
+require('dotenv').config({ path: '../.env' });
 const mongoose = require("mongoose");
-
-
-
 const CardModel = require("../db/webCard.model");
-
 const questions = require("./questions.json")
 
 
+const mongoUrl = process.env.MONGO_URL;
+
+if (!mongoUrl) {
+  console.error("Missing MONGO_URL environment variable");
+  process.exit(1);
+}
 
 
 
-mongoose.connect("mongodb+srv://csabi627:CsabInez9195@cluster0.bakktz0.mongodb.net/").then(() => {
 
-  return main()
-})
 
 
 const populateCard = async () => {
@@ -33,7 +32,15 @@ const populateCard = async () => {
 };
 
 
-const main = () => {
-  populateCard()
+const main = async () => {
+  await mongoose.connect(mongoUrl);
 
-}
+  await populateCard();
+
+  await mongoose.disconnect();
+};
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
