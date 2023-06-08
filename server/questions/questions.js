@@ -1,48 +1,36 @@
 
 const mongoose = require("mongoose");
 
-const progBasics = require("./progBasics.json");
-const progBasicsCardModel = require("../db/progBasicsCard.model");
-const CardModel = require("../db/webCard.model");
-const web = require("./web.json");
+
+
+const CardModel = require("../db/card.model");
+
+const questions = require("./questions.json")
 
 
 
-mongoose.connect("").then(()=>{
+mongoose.connect("").then(() => {
   return main()
 })
 
 
-const webQuestionCards = async () => {
+const populateCard = async () => {
   await CardModel.deleteMany({});
 
-  const webCards = web.web.map((item) => ({
-    question: item.question,
-    answer: item.answer,
+  const cards = questions.map((question) => ({
+    topic: question.topic,
+    question: question.question,
+    answer: question.answer,
   }));
 
-  console.log(webCards);
+ 
 
-  await CardModel.create(...webCards);
-  console.log("WebCards created");
+  await CardModel.create(...cards);
+  console.log("Cards created");
 };
 
-const progBasicsQuestionCards = async () => {
-    await progBasicsCardModel.deleteMany({});
-  
-    const progBasicsCards = progBasics.progBasics.map((item) => ({
-      question: item.question,
-      answer: item.answer,
-    }));
-  
-    console.log(progBasicsCards);
-  
-    await progBasicsCardModel.create(...progBasicsCards);
-    console.log("progBasicsCards created");
-  };
 
-  const main = ()=> {
-    progBasicsQuestionCards();
-    webQuestionCards();
+const main = () => {
+populateCard()
 
-  }
+}

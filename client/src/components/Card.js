@@ -8,32 +8,38 @@ const Card = ({
 
     const handleRemove = async () => {
 
-        if (topicType === "Web Frameworks") {
-            try {
-                const response = await fetch(`http://localhost:3000/api/webcards/${selectedTopic._id}`, {
-                    method: "DELETE"
 
-                })
-                onSetCardDeleted(true);
-                const responseData = await response.json();
-                console.log(responseData);
-            } catch (error) {
-                console.log(error);
-            }
+        try {
+            const response = await fetch(`http://localhost:3000/api/card/${selectedTopic._id}`, {
+                method: "DELETE"
+
+            })
+            onSetCardDeleted(true);
+            const responseData = await response.json();
+            console.log(responseData);
+        } catch (error) {
+            console.log(error);
         }
+    }
 
-       else if (topicType === "Programing Basics") {
-            try {
-                const response = await fetch(`http://localhost:3000/api/progcards/${selectedTopic._id}`, {
-                    method: "DELETE"
-
-                })
-                onSetCardDeleted(true);
-                const responseData = await response.json();
-                console.log(responseData);
-            } catch (error) {
-                console.log(error);
-            }
+    const handleAddToFavourites = async (e) => {
+        e.preventDefault()
+        const card = {
+            topic: "favourite",
+            question: selectedTopic.question,
+            answer: selectedTopic.answer,
+            comment: selectedTopic.comment
+        }
+        try {
+            const response = await fetch("http://localhost:3000/api/card", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(card),
+            })
+            const responseData = await response.json();
+            console.log(responseData);
+        } catch (error) {
+            console.log(error);
         }
 
     }
@@ -61,6 +67,7 @@ const Card = ({
                                 onSetSelectedTopic={onSetSelectedTopic}
                             />
                             <button type="button" onClick={handleRemove}>I knew that! Out of Deck!</button>
+                            <button type="button" onClick={handleAddToFavourites}>Add to favourites </button>
                         </div>
 
                     )}

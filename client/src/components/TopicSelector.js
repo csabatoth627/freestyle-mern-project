@@ -1,4 +1,3 @@
-import React, { useState} from "react";
 
 const TopicSelector = ({ userName, onSetSelectedTopic, onSetShowButtonIsClicked, onSetCardDeleted,topicType, 
     
@@ -10,9 +9,8 @@ const TopicSelector = ({ userName, onSetSelectedTopic, onSetShowButtonIsClicked,
     const handleClick = async () => {
 
 
-        if (topicType === "Web Frameworks") {
             try {
-                const response = await fetch("http://localhost:3000/api/webcards");
+                const response = await fetch(`http://localhost:3000/api/cards?topic=${topicType}`);
                 const question = await response.json();
                 const randomQuestion =
                     question[Math.floor(Math.random() * question.length)];
@@ -22,21 +20,9 @@ const TopicSelector = ({ userName, onSetSelectedTopic, onSetShowButtonIsClicked,
             } catch (error) {
                 console.log(error);
             }
-        }
+        
 
-       else if (topicType === "Programing Basics") {
-            try {
-                const response = await fetch("http://localhost:3000/api/progcards");
-                const question = await response.json();
-                const randomQuestion =
-                    question[Math.floor(Math.random() * question.length)];
-                onSetSelectedTopic(randomQuestion);
-                onSetShowButtonIsClicked(false)
-                onSetCardDeleted(false)
-            } catch (error) {
-                console.log(error);
-            }
-        }
+   
 
 
     }
@@ -51,10 +37,13 @@ const TopicSelector = ({ userName, onSetSelectedTopic, onSetShowButtonIsClicked,
                         <h3 className="hi">Hi {userName}, pick your topic!</h3>
                     </div>
                     <div>
-                        <button type="button" onClick={() => { onSetTopicType("Programing Basics") }}>Programing Basics</button>
+                        <button type="button" onClick={() => { onSetTopicType("progBasics") }}>Programing Basics</button>
                     </div>
                     <div>
-                        <button type="button" onClick={() => { onSetTopicType("Web Frameworks") }}>Web Frameworks</button>
+                        <button type="button" onClick={() => { onSetTopicType("web") }}>Web Frameworks</button>
+                    </div>
+                    <div>
+                        <button type="button" onClick={() => { onSetTopicType("favourite") }}>Favourite questions</button>
                     </div>
                 </div>
             ) : (

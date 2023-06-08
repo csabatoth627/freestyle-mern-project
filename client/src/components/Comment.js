@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Comment({ selectedTopic, onSetSelectedTopic, topicType }) {
+function Comment({ selectedTopic, onSetSelectedTopic,  }) {
   const [comment, setComment] = useState("");
 
   async function handleSubmit(event) {
@@ -8,18 +8,18 @@ function Comment({ selectedTopic, onSetSelectedTopic, topicType }) {
     console.log(comment);
     const addComment = { title: comment };
 
-    if (topicType === "Web Frameworks") {
+    
       try {
-        await fetch(`http://localhost:3000/api/webcards/${selectedTopic._id}`, {
+        await fetch(`http://localhost:3000/api/card/${selectedTopic._id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(addComment),
         });
 
         try {
-          const webCard = await fetch(`http://localhost:3000/api/webcards/${selectedTopic._id}`);
-          const webCardData = await webCard.json();
-          onSetSelectedTopic(webCardData);
+          const card = await fetch(`http://localhost:3000/api/card/${selectedTopic._id}`);
+          const cardData = await card.json();
+          onSetSelectedTopic(cardData);
 
 
         } catch (error) {
@@ -28,29 +28,8 @@ function Comment({ selectedTopic, onSetSelectedTopic, topicType }) {
       } catch (error) {
         console.log(error);
       }
-    }
+    
 
-    if (topicType === "Programing Basics") {
-      try {
-        await fetch(`http://localhost:3000/api/progcards/${selectedTopic._id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(addComment),
-        });
-
-        try {
-          const progCard = await fetch(`http://localhost:3000/api/progcards/${selectedTopic._id}`);
-          const progCardData = await progCard.json();
-          onSetSelectedTopic(progCardData);
-
-
-        } catch (error) {
-          console.log(error);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
 
   }
 
