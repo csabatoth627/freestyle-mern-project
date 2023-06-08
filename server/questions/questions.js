@@ -8,7 +8,7 @@ const web = require("./web.json");
 
 
 
-mongoose.connect("").then(()=>{
+mongoose.connect("mongodb+srv://soskeksz115:jocoka420@freestlyetw.ljgy5fv.mongodb.net/").then(()=>{
   return main()
 })
 
