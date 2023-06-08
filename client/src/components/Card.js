@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Comment from "./Comment";
 
 const Card = ({
     selectedTopic, showButtonIsClicked, onSetShowButtonIsClicked, cardDeleted, onSetCardDeleted, onSetSelectedTopic, topicType
 
 }) => {
+
+const [addedTofavorites, setAddedTofavorites] = useState(false)
 
     const handleRemove = async () => {
 
@@ -39,6 +41,7 @@ const Card = ({
             })
             const responseData = await response.json();
             console.log(responseData);
+            setAddedTofavorites(true);
         } catch (error) {
             console.log(error);
         }
@@ -68,7 +71,14 @@ const Card = ({
                                 onSetSelectedTopic={onSetSelectedTopic}
                             />
                             <button type="button" onClick={handleRemove}>I knew that! Out of Deck!</button>
+                            
+                            {topicType !== "favourite" && !addedTofavorites &&
+                            <>
                             <button type="button" onClick={handleAddToFavourites}>Add to favourites </button>
+                            </>
+
+                            }
+                            
                         </div>
 
                     )}
