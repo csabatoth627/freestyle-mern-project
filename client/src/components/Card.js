@@ -27,6 +27,7 @@ const [addedTofavorites, setAddedTofavorites] = useState(false)
     const handleAddToFavourites = async (e) => {
         e.preventDefault()
         const card = {
+            
             topic: "favourite",
             question: selectedTopic.question,
             answer: selectedTopic.answer,

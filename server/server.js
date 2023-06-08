@@ -49,7 +49,13 @@ app.get("/api/card/:id", async (req, res) => {
 
 app.post("/api/card", async (req, res, next) => {
   const card = req.body
+  const question = req.body.question
+  const topic = req.body.topic
   try {
+    const existQuestion = await CardModel.findOne({ question: question,topic:topic });
+    if (existQuestion) {
+      return res.status(400).json({ success: false, message: 'The question exists.' });
+    }
     const saved = await CardModel.create(card);
     return res.json(saved);
   } catch (err) {
@@ -85,7 +91,9 @@ app.delete("/api/card/:id", async (req, res) => {
 
 
 
-mongoose.connect("mongodb+srv://soskeksz115:jocoka420@freestlyetw.ljgy5fv.mongodb.net/").then(() => {
+
+mongoose.connect("mongodb+srv://csabi627:CsabInez9195@cluster0.bakktz0.mongodb.net/").then(() => {
+
   console.log("Connected to DB");
   app.listen("3000", () => {
     console.log("Server listen on port 3000");
