@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const webCardModel = require("./db/webCard.model");
 const progCardModel = require("./db/progBasicsCard.model");
+const favoritesModel = require("./db/favorites.model");
 
 const mongoUrl = process.env.MONGO_URL;
 
@@ -67,6 +68,40 @@ app.get("/api/progcards/:id", async (req, res) => {
   }
 });
 
+
+app.get("/api/favorites", async (req, res) => {
+  const favorites = await favoritesModel.find();
+
+  try {
+    res.json(favorites)
+  } catch (error) {
+    res.status(500).json({ succes: false, error: "Failed to get favorites :(((" });
+  }
+});
+
+app.get("/api/favorites/:id", async (req, res) => {
+  const id = req.params.id;
+  
+  const favorite = await favoritesModel.findOne({ _id: id });
+
+  try {
+    res.json(favorite)
+  } catch (error) {
+    res.status(500).json({ succes: false, error: "Failed to get the desired favorite :(((" });
+  }
+});
+
+app.post("/api/favorites", async (req, res) => {
+  const favorite = req.body;
+
+  try {
+    const saved = favoritesModel.create(favorite);
+      res.json(saved)
+  } catch (error) {
+    res.status(500).json({ succes: false, error: "Failed to save the desired favorite :(((" });
+  }
+});
+
 //add the comment
 
 app.patch("/api/webcards/:id", async (req, res) => {
@@ -117,7 +152,7 @@ app.delete("/api/webcards/:id", async (req, res) => {
 
 
 
-mongoose.connect("").then(()=>{
+mongoose.connect("mongodb+srv://soskeksz115:jocoka420@freestlyetw.ljgy5fv.mongodb.net/").then(()=>{
   console.log("Connected to DB");
   app.listen("3000", () => {
     console.log("Server listen on port 3000");
