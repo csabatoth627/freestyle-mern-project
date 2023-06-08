@@ -1,0 +1,195 @@
+{
+  "progBasics": [
+    {
+      "question": "What are the differences between objects and arrays? What is the purpose of the object and what is the purpose of the array?",
+      "answer": "Objects represent “things” with characteristics (aka properties), while arrays create and store lists of data in a single variable.\n\nArrays are used to store multiple values in a single variable. This is compared to a variable that can store only one value. Each item in an array has a number attached to it, called a numeric index, that allows you to access it. In JavaScript, arrays start at index zero and can be manipulated with various methods.\n\nMy Remote Image"
+    },
+
+    {
+      "question": "How can you access a key's value in an object?",
+      "answer": "You can access a key's value in an object using dot notation or bracket notation. For example, if you have an object called 'obj' and a key called 'key', you can access its value as 'obj.key' or 'obj['key']'."
+    },
+
+    {
+      "question": "How can you access the first and the last item of an array?",
+      "answer": "To access the first item of an array, you can use 'array[0]'.\n\nTo access the last item of an array, you can use 'array[array.length - 1]'."
+    },
+
+    {
+      "question": "Name all the primitive types in JavaScript.",
+      "answer": "JavaScript has seven primitive data types:\n- string\n- number\n- bigint: This is similar to Number, however, it allows you to safely represent integer values larger than 253. You can create a bigint by appending 'n' to the end of the number or by wrapping the number in the BigInt() constructor.\n- boolean: This data type contains the values true or false.\n- undefined: This value is automatically assigned to variables that have just been declared but not defined. If you were to put this in an if statement, the value would be false.\n- symbol: A Symbol is a value created by invoking the Symbol function, which is guaranteed to create a unique value. It takes one parameter, a string description, that will show up when you print the symbol.\n- null: The null value represents the intentional absence of any object value."
+    },
+    {
+      "question": "What are the assignment operators?",
+      "answer": "An assignment operator assigns a value to its left operand based on the value of its right operand.\n\n- =\n- +=\n- -=\n- *=\n- /=\n- %=\n- **="
+    },
+
+    {
+      "question": "What are the arithmetic operators?",
+      "answer": "An arithmetic operator accepts numerical values as operands and returns a single numerical value. The numerical values can be literals or variables.\n\n- +\n- -\n- *\n- /\n- % (remainder/modulo)\n- **"
+    },
+
+    {
+      "question": "What are the comparison operators?",
+      "answer": "Comparison operators are used in logical statements to determine equality or difference between variables or values.\n\n- == (equal to)\n- === (equal value and equal type)\n- != (not equal)\n- !== (not equal value or not equal type)\n- > (greater than)\n- < (less than)\n- >= (greater than or equal to)\n- <= (less than or equal to)"
+    },
+
+    {
+      "question": "What are the logical operators?",
+      "answer": "Logical operators are used to determine the logic between variables or values.\n\n- && (and)\n- || (or)\n- ! (not)\n- ?? (nullish coalescing operator) (The ?? operator returns the first argument if it is not nullish (null or undefined). Otherwise, it returns the second argument.)"
+    },
+
+    {
+      "question": "What is the difference between for, for...of, and for...in?",
+      "answer": "The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.\n\nThe for...of statement executes a loop that operates on a sequence of values sourced from an iterable object. Iterable objects include instances of built-ins such as Array, String.\n\nThe for...in statement iterates over all enumerable (string) properties of an object (ignoring properties keyed by symbols), including inherited enumerable properties."
+    },
+
+    {
+      "question": "How do you find the average of values in an array if you can’t use any built-in functions or methods?",
+      "answer": "To find the average of values in an array without using built-in functions or methods, you can follow these steps:\n\n1. Declare a variable with the initial value of 0 to store the sum of the array values.\n2. Iterate through the array using a loop and add each value to the sum variable.\n3. After the loop, divide the sum by the length of the array to calculate the average.\n\nHere's an example:\n\njavascript\nlet array = [1, 2, 3, 4, 5];\nlet sum = 0;\n\nfor (let i = 0; i < array.length; i++) {\n sum += array[i];\n}\n\nlet average = sum / array.length;\nconsole.log(average);\n\n\nThis will output the average of the values in the array."
+    },
+    {
+      "question": "What are the main parts of a function?",
+      "answer": "A function has three main parts:\n\n- The function keyword.\n- An optional name (which can also be anonymous).\n- A list of parameter names enclosed in parentheses.\n- The statement(s) enclosed in curly braces."
+    },
+
+    {
+      "question": "What is the difference between parameters and arguments?",
+      "answer": "In a function, parameters are the variables listed in the function's definition, while arguments are the actual values passed to the function when it is called.\n\nFor example:\n\njavascript\nfunction add(a, b) {\n return a + b;\n}\n\nadd(3, 5);\n\n\nIn the above example, a and b are parameters, and 3 and 5 are arguments."
+    },
+
+    {
+      "question": "What are the differences between function expression and function statement?",
+      "answer": "The main differences between function expressions and function statements are:\n\n- Function statements use the function keyword followed by the name of the function, parameter list, and function body enclosed in curly braces (function myFunction(param1, param2)).\n- Function expressions assign a function to a variable using the assignment operator (let myFunction = function(param1, param2)).\n- Function statements are hoisted, meaning they are available for use before they are declared.\n- Function expressions are not hoisted, so they cannot be used before they are defined.\n- Function statements are saved for later use.\n- Function expressions can be used as an IIFE (Immediately Invoked Function Expression), which runs as soon as it is defined."
+    },
+    {
+      "question": "What is a method?",
+      "answer": "A method in JavaScript is a function that is stored as a property of an object. It is accessed using the syntax: objectName.methodName(). Methods allow objects to perform actions or calculations."
+    },
+
+    {
+      "question": "Name 3 built-in functions (and/or methods) regarding strings.",
+      "answer": "Here are three built-in functions/methods regarding strings:\n\n- string.length(): The length property returns the length of a string.\n- string.toUpperCase()/string.toLowerCase(): These methods convert the string to upper/lower case.\n- string.split(): The split() method converts a string into an array by splitting it into substrings based on a specified separator."
+    },
+
+    {
+      "question": "Name 3 built-in functions (and/or methods) regarding arrays.",
+      "answer": "Here are three built-in functions/methods regarding arrays:\n\n- array.push()/array.unshift(): The push() method adds one or more elements to the end of an array, and unshift() adds elements to the start of an array.\n- array.pop()/array.shift(): The pop() method removes the last element from an array, and shift() removes the first element from an array.\n- array.slice(): The slice() method returns a shallow copy of a portion of an array into a new array object, selected from start to end (end not included). The original array is not modified."
+    },
+
+    {
+      "question": "Name 3 built-in functions (and/or methods) regarding numbers.",
+      "answer": "Here are three built-in functions/methods regarding numbers:\n\n- .parseInt(): The parseInt() function parses a string and returns a whole number. It only returns the first number encountered in the string.\n- .toString(): The toString() method converts a number to a string. It accepts an optional parameter for the radix (base) and returns the string representation of the number.\n- .parseFloat(): The parseFloat() function parses a string and returns a floating-point number. It only returns the first number encountered in the string."
+    },
+    {
+      "question": "What is a callback function?",
+      "answer": "A callback function is a function that is passed as an argument to another function and is invoked inside that function. It allows for asynchronous and event-driven programming by providing a way to specify what should happen after a certain task or event completes."
+    },
+
+    {
+      "question": "What are the differences between for loops and forEach?",
+      "answer": "Here are the differences between for loops and forEach():\n\n- The for loop is a general-purpose loop that can iterate over different kinds of collections, while forEach() is a method specifically available for arrays.\n- The for loop allows more control over the iteration process, such as specifying the iteration variable and defining the loop conditions, while forEach() abstracts away the details of iteration and provides a cleaner syntax.\n- The for loop can be used with the break statement to exit the loop prematurely, while forEach() does not provide a built-in way to stop or break the loop."
+    },
+
+    {
+      "question": "What is the difference between JavaScript data structures and JSON data structures?",
+      "answer": "JavaScript data structures are used within a JavaScript program to store and organize data, while JSON (JavaScript Object Notation) data structures are a specific format used to represent data in a platform-independent way that can be easily exchanged between different programming languages or systems.\n\nWhile both share similar structures such as arrays and objects, JSON data structures have stricter syntax rules and do not allow for methods or functions like JavaScript data structures."
+    },
+
+    {
+      "question": "How do you create a JavaScript data structure from a JSON file's data?",
+      "answer": "To create a JavaScript data structure from a JSON file's data, you can use the JSON.parse() method. This method takes a JSON string as input and returns a JavaScript object representing the parsed data. You can then use this JavaScript object to work with the data within your JavaScript program."
+    },
+
+    {
+      "question": "What is the difference between JavaScript data structures and DOM (HTML document) data structures?",
+      "answer": "JavaScript data structures are used to store and manipulate data within a JavaScript program, while DOM (Document Object Model) data structures are used to represent the structure and content of an HTML document and can be accessed and manipulated using JavaScript.\n\nWhile both use similar structures such as objects and arrays, DOM data structures have a specific structure that represents the elements and attributes of an HTML document, and can be manipulated using specific DOM methods and properties."
+    },
+
+    {
+      "question": "What are the steps of changing an HTML element's content with JavaScript?",
+      "answer": "To change the content of an HTML element with JavaScript, follow these steps:\n\n1. Get a reference to the HTML element using a method like document.getElementById() or other DOM traversal methods.\n2. Access the innerHTML property of the element, which represents its content.\n3. Assign the new content to the innerHTML property. This will replace the existing content of the element with the new content."
+    },
+    {
+      "question": "What is an event listener?",
+      "answer": "An event listener is a function that waits for a specific event to occur and then executes a designated action or set of actions in response to that event. It allows you to handle user interactions or other events in your code."
+    },
+
+    {
+      "question": "What are the steps of changing an HTML element's content when the element is clicked?",
+      "answer": "To change an HTML element's content when it is clicked, you can follow these steps:\n\n1. Attach a click event listener to the element using a method like addEventListener().\n2. In the event listener function, access the element using this or the event.target property.\n3. Modify the element's content by accessing its innerHTML property.\n4. Assign the new content to the innerHTML property."
+    },
+
+    {
+      "question": "Inside a click event listener, how can you access the element that has been clicked?",
+      "answer": "Inside a click event listener, you can access the element that has been clicked using the event.target property. The event object is automatically passed to the event listener function, and the target property refers to the element that triggered the event. You can then use this element to perform further actions or modify its content."
+    },
+    {
+      "question": "What are the differences between display: block and display: inline CSS properties?",
+      "answer": "The display: block CSS property makes an element a block-level element, which means it takes up the entire width available and starts on a new line. Block-level elements have line breaks before and after them.\n\nThe display: inline CSS property, on the other hand, makes an element an inline-level element, which means it occupies only the space necessary for its content and does not start on a new line. Inline-level elements do not have line breaks before or after them and can appear next to each other horizontally."
+    },
+
+    {
+      "question": "What are the differences between position: relative and position: absolute CSS properties?",
+      "answer": "The position: relative CSS property positions an element relative to its normal position in the document flow. It allows you to adjust the position of the element using properties like top, right, bottom, and left, which move the element from its default position.\n\nThe position: absolute CSS property, on the other hand, positions an element relative to its closest positioned ancestor (a parent element with a position value other than static). If there is no positioned ancestor, it is positioned relative to the document's root element (the viewport). Absolute positioning takes the element out of the normal document flow and can overlap other elements."
+    },
+
+    {
+      "question": "What is the box model, and name the CSS properties connected to it?",
+      "answer": "The CSS box model is a fundamental concept that describes how elements are structured and how their dimensions are calculated. It consists of four components:\n\n1. Content: The actual content of the element, such as text or images.\n2. Padding: The space between the content and the element's border.\n3. Border: The border surrounding the padding and content.\n4. Margin: The space between the element's border and adjacent elements.\n\nCSS properties related to the box model include:\n- padding\n- border\n- margin\n- width\n- height\n- box-sizing\n- overflow"
+    },
+
+    {
+      "question": "What CSS properties affect font and text appearance?",
+      "answer": "CSS properties that affect font and text appearance include:\n\n- font-family\n- font-size\n- font-weight\n- font-style\n- text-decoration\n- text-align\n- text-transform\n- line-height\n- word-spacing\n- letter-spacing\n- text-shadow\n\nThese properties allow you to control aspects such as the font type, size, weight, style, alignment, decoration (e.g., underline), capitalization, spacing, and shadow of text in HTML elements."
+    },
+
+    {
+      "question": "What are the steps of adding or removing an HTML element's class name?",
+      "answer": "To add or remove a class name from an HTML element, you can follow these steps:\n\n1. Get a reference to the element using a method like getElementById() or querySelector().\n2. To add a class, use the classList.add() method and provide the name of the class as an argument.\n3. To remove a class, use the classList.remove() method and provide the name of the class as an argument.\n\nExample:\n\njavascript\n// Adding a class\nvar element = document.getElementById('myElement');\nelement.classList.add('newClass');\n\n// Removing a class\nelement.classList.remove('oldClass');\n"
+    },
+    {
+      "question": "What is the difference between value and reference data types in terms of objects and primitives?",
+      "answer": "In JavaScript, primitive types (value data types) are passed by value, whereas arrays and objects (reference data types) are passed by reference.\n\nWhen a primitive value is assigned to a variable or passed as a function argument, a copy of the value is created. Modifying the copy does not affect the original value.\n\nOn the other hand, when an array or object is assigned to a variable or passed as a function argument, a reference to the memory location of the array or object is created. Modifying the referenced array or object will affect the original value since they both point to the same memory location."
+    },
+
+    {
+      "question": "Is null an object or a primitive?",
+      "answer": "Null is a primitive value in JavaScript. It represents the intentional absence of any object value. It is often used to indicate that a variable does not currently have a value assigned to it."
+    },
+
+    {
+      "question": "What is undefined?",
+      "answer": "Undefined is a special value in JavaScript that indicates that a variable has been declared but has not been assigned a value. It is also the default value of function parameters that have not been provided a value. In other words, it means that a variable or property exists, but its value is not defined."
+    },
+
+    {
+      "question": "When to use var, let, and const?",
+      "answer": "In JavaScript, you can use var, let, and const to declare variables with different scoping and mutability characteristics:\n\n- Use var to declare a variable with function scope or global scope (if declared outside a function). Variables declared with var can be reassigned and are hoisted to the top of their scope.\n- Use let to declare a variable with block scope. Variables declared with let can be reassigned but are not hoisted.\n- Use const to declare a variable with block scope. Variables declared with const cannot be reassigned once they are assigned a value. They are also not hoisted.\n\nIn general, it is recommended to use let and const instead of var due to their better scoping rules and less risk of unexpected behavior."
+    },
+
+    {
+      "question": "What is hoisting?",
+      "answer": "Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means that you can use variables and call functions before they are actually declared in the code. However, only the declarations are hoisted, not the initializations.\n\nFor example, with variable hoisting:\n\njavascript\nconsole.log(x); // Output: undefined\nvar x = 5;\nconsole.log(x); // Output: 5\n\n\nThe variable x is hoisted to the top, but its value is not assigned until the corresponding line is reached. Therefore, the first console.log statement outputs undefined."
+    },
+    {
+      "question": "What are the advantages of using a version control system?",
+      "answer": "Using a version control system (VCS) offers several advantages for developers:\n\n1. History and version tracking: VCS allows developers to track changes to code over time, providing a complete history of modifications and the ability to revert to previous versions if needed.\n2. Collaboration: VCS enables multiple developers to work on the same project simultaneously, managing conflicts and merging changes seamlessly.\n3. Branching and experimentation: VCS allows developers to create branches to work on new features or experiment with changes without affecting the main codebase.\n4. Backup and recovery: VCS acts as a backup system, preserving code repositories and providing a way to recover lost or deleted code.\n5. Accountability and traceability: VCS records who made specific changes to the code, providing accountability and facilitating troubleshooting or bug fixing."
+    },
+
+    {
+      "question": "What’s the difference between Git and GitHub?",
+      "answer": "Git is a distributed version control system that tracks changes to code and enables collaboration among developers. It runs locally on a developer's machine and allows them to create and manage repositories, track changes, and perform version control operations.\n\nGitHub, on the other hand, is a web-based hosting platform that utilizes Git as its underlying version control system. It provides additional features on top of Git, such as a graphical user interface, issue tracking, project management tools, and collaboration features. GitHub allows developers to host their Git repositories in the cloud, making them accessible to other team members and providing a centralized platform for collaboration."
+    },
+
+    {
+      "question": "What are remote repositories in Git?",
+      "answer": "Remote repositories in Git are copies of a repository that are hosted on a server or another computer. They serve as a central location where developers can share their code and collaborate on a project. Remote repositories allow multiple developers to work on the same project simultaneously by pulling changes from the remote repository, making their own modifications, and pushing their changes back to the remote repository. Common remote repository hosting platforms include GitHub, GitLab, and Bitbucket."
+    },
+
+    {
+      "question": "Why does a merge conflict occur?",
+      "answer": "A merge conflict occurs in Git when two or more branches have made conflicting changes to the same part of a file or files. This conflict arises when Git is unable to automatically determine how to combine the changes, as the modifications made in different branches overlap or contradict each other. Git cannot determine which version of the conflicting code should be preserved, and it requires manual intervention from the developer to resolve the conflict. Merge conflicts commonly occur when multiple developers are working on the same codebase and make conflicting changes in their respective branches. Resolving merge conflicts involves reviewing the conflicting changes, selecting the desired changes, and manually editing the code to merge the conflicting modifications in a way that maintains the intended functionality of the code."
+    }
+  ]
+}
