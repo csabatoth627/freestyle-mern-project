@@ -72,7 +72,6 @@ app.patch("/api/card/:id", async (req, res) => {
 
 
 
-
 app.delete("/api/card/:id", async (req, res) => {
   const id = req.params.id;
   try {
@@ -86,12 +85,11 @@ app.delete("/api/card/:id", async (req, res) => {
 
 
 
-mongoose.connect("").then(() => {
+mongoose.connect("mongodb+srv://soskeksz115:jocoka420@freestlyetw.ljgy5fv.mongodb.net/").then(() => {
   console.log("Connected to DB");
   app.listen("3000", () => {
     console.log("Server listen on port 3000");
   });
 })
-
 
 
