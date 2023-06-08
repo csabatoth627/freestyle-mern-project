@@ -43,15 +43,19 @@ const Card = ({
   };
 
   const handleAddToFavorites = async () => {
-    const response = await fetch(`/api/favorites`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({selectedTopic})
-    });
-    
     try {
+      const response = await fetch("http://localhost:3000/api/favorites", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(selectedTopic),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to add to favorites.");
+      }
+  
       const responseData = await response.json();
       console.log(responseData);
     } catch (error) {

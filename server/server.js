@@ -95,10 +95,12 @@ app.post("/api/favorites", async (req, res) => {
   const favorite = req.body;
 
   try {
-    const saved = favoritesModel.create(favorite);
-      res.json(saved)
+    const saved = await favoritesModel.create(favorite); // Várjuk meg a mentést a modellben
+    res.json(saved);
   } catch (error) {
-    res.status(500).json({ succes: false, error: "Failed to save the desired favorite :(((" });
+    res
+      .status(500)
+      .json({ success: false, error: "Failed to save the desired favorite :(((" });
   }
 });
 
