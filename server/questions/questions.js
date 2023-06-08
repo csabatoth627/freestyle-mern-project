@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 
 
-const CardModel = require("../db/card.model");
+const CardModel = require("../db/webCard.model");
 
 const questions = require("./questions.json")
 
@@ -23,7 +23,7 @@ const populateCard = async () => {
     answer: question.answer,
   }));
 
- 
+
 
   await CardModel.create(...cards);
   console.log("Cards created");
@@ -31,6 +31,6 @@ const populateCard = async () => {
 
 
 const main = () => {
-populateCard()
+  populateCard()
 
 }

@@ -3,7 +3,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const CardModel = require("./db/card.model");
+const CardModel = require("./db/webCard.model");
 const FavouriteModel = require("./db/favourite.model")
 
 
