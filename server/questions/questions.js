@@ -9,7 +9,7 @@ const questions = require("./questions.json")
 
 
 
-mongoose.connect("").then(() => {
+mongoose.connect("mongodb+srv://csabi627:CsabInez9195@cluster0.bakktz0.mongodb.net/").then(() => {
   return main()
 })
 
