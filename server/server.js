@@ -28,10 +28,8 @@ app.get("/api/cards", async (req, res) => {
     const cards = await CardModel.find({ topic: query });
    
     if (cards.length === 0) {
-      // Ha nem talál kártyát a lekérdezett témával, akkor hibaüzenetet küldünk vissza
       res.status(404).json([{question: "You have no favourite cards"}]);
     } else {
-      // Ha talált kártyákat, akkor azokat küldjük vissza
       res.json(cards);
     }
 
